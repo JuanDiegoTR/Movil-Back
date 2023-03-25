@@ -1,5 +1,6 @@
 package com.loginms.loginms.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,12 +19,15 @@ public class ContabilidadEntity {
     private Long valor;
     @Column(name = "fecha")
     private Date fecha;
+    @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "id_categoria")
     private CategoriaEntity categoria;
+    @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "id_descripcion")
     private DescripcionEntity descripcion;
+    @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuario;

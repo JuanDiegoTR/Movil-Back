@@ -1,5 +1,7 @@
 package com.loginms.loginms.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -23,10 +25,11 @@ public class UsuarioEntity {
     private String usuario;
     @Column(name = "contraseña")
     private String contraseña;
+    @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "id_rol")
     private RolEntity rol;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContabilidadEntity> contabilidad;
 

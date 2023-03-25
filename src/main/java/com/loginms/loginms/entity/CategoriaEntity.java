@@ -1,5 +1,7 @@
 package com.loginms.loginms.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,8 +19,10 @@ public class CategoriaEntity {
     private String categoria;
     @Column(name = "id_tipo")
     private Long id_tipo;
+    @JsonIgnore
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContabilidadEntity> contabilidad;
+    @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "id_imagen")
     private ImagenEntity imagen;
