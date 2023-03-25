@@ -15,7 +15,6 @@ public class AccesoEntity {
     @ManyToOne()
     @JoinColumn(name = "id_pantalla")
     private PantallaEntity pantalla;
-
     @ManyToOne()
     @JoinColumn(name = "id_rol")
     private RolEntity rol;

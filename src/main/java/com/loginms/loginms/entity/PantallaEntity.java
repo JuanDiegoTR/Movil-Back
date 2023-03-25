@@ -13,6 +13,7 @@ public class PantallaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_pantalla;
+    @Column(name = "pantalla")
     private String pantalla;
     @OneToMany(mappedBy = "pantalla", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AccesoEntity> acceso;
