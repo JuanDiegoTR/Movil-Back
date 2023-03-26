@@ -14,7 +14,6 @@ import java.util.Base64;
 import java.util.Objects;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class UsuarioService implements IUsuarioService {
 
@@ -39,7 +38,8 @@ public class UsuarioService implements IUsuarioService {
         ModelMapper mapper = new ModelMapper();
         UsuarioEntity usuarioEntity = mapper.map(usuario, UsuarioEntity.class);
         usuarioEntity.setContraseña(contraEncrip);
-        //usuarioEntity.getRol().setId_rol(1L);
+        usuarioEntity.getRol().setId_rol(1L);//Bug al guardar
+        System.out.println(usuarioEntity);
         usuarioRepository.save(usuarioEntity);
 
     }

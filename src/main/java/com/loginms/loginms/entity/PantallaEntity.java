@@ -19,7 +19,6 @@ public class PantallaEntity {
 
     /*@OneToMany(mappedBy = "pantalla", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AccesoEntity> acceso;*/
-
     @ManyToMany(mappedBy = "pantallas")
     private Set<RolEntity> rols;
 

@@ -18,9 +18,9 @@ public class RolEntity {
     private String rol;
     /*@OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AccesoEntity> acceso;*/
-   /* @JsonIgnore
+    @JsonIgnore
     @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UsuarioEntity> usuario;*/
+    private List<UsuarioEntity> usuario;
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,

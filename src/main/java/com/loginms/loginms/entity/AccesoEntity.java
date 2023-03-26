@@ -13,13 +13,15 @@ public class AccesoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAcceso;
-    @JsonBackReference
+    /*@JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "id_pantalla")
     private PantallaEntity pantalla;
-    @JsonBackReference
+    /*@JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "id_rol")
-    private RolEntity rol;
+    private RolEntity rol;*/
+    private Long id_pantalla;
+    private Long id_rol;
 
 }

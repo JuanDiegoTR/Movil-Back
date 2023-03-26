@@ -30,7 +30,7 @@ public class ContabilidadEntity {
     @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "id_usuario")
-    private UsuarioEntity usuario;
+    private UsuarioEntity usuarios;
 
 
 }

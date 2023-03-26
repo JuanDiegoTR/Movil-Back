@@ -17,7 +17,7 @@ public class DescripcionEntity {
     @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "tipo")
-    private Long id_tipo;
+    private Long idTipo;
     @JsonIgnore
     @OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContabilidadEntity> contabilidad;

@@ -30,7 +30,7 @@ public class UsuarioEntity {
     @JoinColumn(name = "id_rol")
     private RolEntity rol;
     @JsonIgnore
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContabilidadEntity> contabilidad;
 
 }

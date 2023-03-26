@@ -12,8 +12,10 @@ public class Constantes {
 
     public final class Urls{
         public final static String PATH_USUARIO = "usuario";
-
         public final static String PATH_USUARIO_USER = "{usuario}";
+        public final static String PATH_DESCRIP = "descripcion";
+        public final static String PATH_DESCRIP_ID = "{id}";
+
     }
 
 }
