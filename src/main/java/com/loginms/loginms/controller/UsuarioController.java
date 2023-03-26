@@ -14,11 +14,24 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService usuarioService;
 
+    /**
+     * Crear un usuario
+     *
+     * @param usuario Parametro de entrada
+     * @throws NullPointerException Error
+     */
     @PostMapping
     public void nuevoUsuario(@RequestBody UsuarioDTO usuario) throws NullPointerException {
         usuarioService.nuevoUsuario(usuario);
     }
 
+    /**
+     * Buscar un usuario por su usuario
+     *
+     * @param usuario Parametro de entrada
+     * @return UsuarioEntity
+     * @throws NullPointerException Error
+     */
     @GetMapping(value = Constantes.Urls.PATH_USUARIO_USER)
     public UsuarioEntity usuarioByUsuario(@PathVariable("usuario") String usuario) {
         return usuarioService.usuarioByUsuario(usuario);
