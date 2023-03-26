@@ -18,7 +18,7 @@ public class CategoriaEntity {
     @Column(name = "categoria")
     private String categoria;
     @Column(name = "id_tipo")
-    private Long id_tipo;
+    private Long idTipo;
     @JsonIgnore
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContabilidadEntity> contabilidad;

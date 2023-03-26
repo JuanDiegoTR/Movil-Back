@@ -14,7 +14,7 @@ public class ContabilidadEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_contabilidad;
     @Column(name = "tipo")
-    private Long id_tipo;
+    private Long idTipo;
     @Column(name = "valor")
     private Long valor;
     @Column(name = "fecha")

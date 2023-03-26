@@ -4,9 +4,9 @@ import com.loginms.loginms.entity.TipoEntity;
 import com.loginms.loginms.repository.TipoRepository;
 import com.loginms.loginms.service.ITipoService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -27,5 +27,26 @@ public class TipoService implements ITipoService {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void guardarTipo(String tipo) throws NullPointerException {
+
+        if (tipo.isEmpty()) {
+            throw new NullPointerException("Los parametros de entrada no pueden ser nulo");
+        }
+
+        ModelMapper mapper = new ModelMapper();
+        TipoEntity tipoEntity = mapper.map(tipo, TipoEntity.class);
+        tipoEntity.setTipo(tipo);
+        tipoRepository.save(tipoEntity);
+    }
+
+    @Override
+    public void eliminarTipo(Long id) throws NullPointerException {
+        if (id == null || id.equals(" ")) {
+            throw new NullPointerException("Los parametros de entrada no pueden ser nulo");
+        }
+        tipoRepository.deleteById(id);
     }
 }

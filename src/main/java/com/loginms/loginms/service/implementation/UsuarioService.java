@@ -38,7 +38,7 @@ public class UsuarioService implements IUsuarioService {
         ModelMapper mapper = new ModelMapper();
         UsuarioEntity usuarioEntity = mapper.map(usuario, UsuarioEntity.class);
         usuarioEntity.setContraseña(contraEncrip);
-        usuarioEntity.getRol().setId_rol(1L);//Bug al guardar
+        //usuarioEntity.getRol().setId_rol(1L);//Bug al guardar
         System.out.println(usuarioEntity);
         usuarioRepository.save(usuarioEntity);
 

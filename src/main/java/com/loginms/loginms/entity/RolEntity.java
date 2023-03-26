@@ -14,12 +14,12 @@ public class RolEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_rol;
-    @Column(name = "rol")
+    @Column(name = "rols")
     private String rol;
     /*@OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AccesoEntity> acceso;*/
     @JsonIgnore
-    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UsuarioEntity> usuario;
 
     @ManyToMany(cascade = {

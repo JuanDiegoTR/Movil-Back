@@ -21,7 +21,9 @@ public class AccesoEntity {
     @ManyToOne()
     @JoinColumn(name = "id_rol")
     private RolEntity rol;*/
-    private Long id_pantalla;
-    private Long id_rol;
+    @Column(name = "id_pantalla")
+    private Long idPantalla;
+    @Column(name = "id_rol")
+    private Long idRol;
 
 }

@@ -28,7 +28,7 @@ public class UsuarioEntity {
     @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "id_rol")
-    private RolEntity rol;
+    private RolEntity role;
     @JsonIgnore
     @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContabilidadEntity> contabilidad;

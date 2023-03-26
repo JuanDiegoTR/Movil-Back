@@ -15,6 +15,8 @@ public class Constantes {
         public final static String PATH_USUARIO_USER = "{usuario}";
         public final static String PATH_DESCRIP = "descripcion";
         public final static String PATH_DESCRIP_ID = "{id}";
+        public final static String PATH_TIPO = "tipos";
+        public final static String PATH_TIPO_ID = "{id}";
 
     }
 
