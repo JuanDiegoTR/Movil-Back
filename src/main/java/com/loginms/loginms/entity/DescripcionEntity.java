@@ -1,5 +1,6 @@
 package com.loginms.loginms.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,8 +17,9 @@ public class DescripcionEntity {
     @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "tipo")
-    private Long id_tipo;
-    @OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ContabilidadEntity> contabilidad;
+    private Long idTipo;
+    @JsonIgnore
+    @OneToOne(mappedBy = "descripcion", cascade = CascadeType.ALL, orphanRemoval = true)
+    private ContabilidadEntity contabilidad;
 
 }
