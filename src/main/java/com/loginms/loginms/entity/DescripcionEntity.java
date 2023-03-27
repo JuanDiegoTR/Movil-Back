@@ -19,7 +19,7 @@ public class DescripcionEntity {
     @Column(name = "tipo")
     private Long idTipo;
     @JsonIgnore
-    @OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ContabilidadEntity> contabilidad;
+    @OneToOne(mappedBy = "descripcion", cascade = CascadeType.ALL, orphanRemoval = true)
+    private ContabilidadEntity contabilidad;
 
 }

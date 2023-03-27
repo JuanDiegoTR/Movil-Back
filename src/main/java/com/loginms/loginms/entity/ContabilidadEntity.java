@@ -20,15 +20,15 @@ public class ContabilidadEntity {
     @Column(name = "fecha")
     private Date fecha;
     @JsonBackReference
-    @ManyToOne()
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_categoria")
     private CategoriaEntity categoria;
     @JsonBackReference
-    @ManyToOne()
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_descripcion")
     private DescripcionEntity descripcion;
     @JsonBackReference
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuarios;
 

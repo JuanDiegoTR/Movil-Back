@@ -20,10 +20,10 @@ public class CategoriaEntity {
     @Column(name = "id_tipo")
     private Long idTipo;
     @JsonIgnore
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ContabilidadEntity> contabilidad;
+    @OneToOne(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
+    private ContabilidadEntity contabilidad;
     @JsonBackReference
-    @ManyToOne()
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_imagen")
     private ImagenEntity imagen;
 

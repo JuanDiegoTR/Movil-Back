@@ -17,7 +17,7 @@ public class ImagenEntity {
     @Column(name = "imagen")
     private Byte[] imagen;
     @JsonIgnore
-    @OneToMany(mappedBy = "imagen", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CategoriaEntity> categoria;
+    @OneToOne(mappedBy = "imagen", cascade = CascadeType.ALL, orphanRemoval = true)
+    private CategoriaEntity categoria;
 
 }

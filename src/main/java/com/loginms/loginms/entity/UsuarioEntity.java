@@ -26,7 +26,7 @@ public class UsuarioEntity {
     @Column(name = "contraseña")
     private String contraseña;
     @JsonBackReference
-    @ManyToOne()
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_rol")
     private RolEntity role;
     @JsonIgnore

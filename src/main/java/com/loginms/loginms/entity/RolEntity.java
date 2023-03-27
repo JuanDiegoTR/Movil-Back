@@ -19,8 +19,8 @@ public class RolEntity {
     /*@OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AccesoEntity> acceso;*/
     @JsonIgnore
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UsuarioEntity> usuario;
+    @OneToOne(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    private UsuarioEntity usuario;
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
@@ -31,6 +31,6 @@ public class RolEntity {
             joinColumns = {@JoinColumn(name = "id_rol")},
             inverseJoinColumns = {@JoinColumn(name = "id_pantalla")}
     )
-    private Set<PantallaEntity> pantallas;
+    private List<PantallaEntity> pantallas;
 
 }
