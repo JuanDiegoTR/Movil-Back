@@ -39,6 +39,8 @@ public class Constantes {
          */
         public final static String PATH_TIPO_ID = "{id}";
 
+        private Urls() {
+        }
     }
 
 }

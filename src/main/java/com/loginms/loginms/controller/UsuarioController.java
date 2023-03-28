@@ -33,7 +33,7 @@ public class UsuarioController {
      * @throws NullPointerException Error
      */
     @GetMapping(value = Constantes.Urls.PATH_USUARIO_USER)
-    public UsuarioEntity usuarioByUsuario(@PathVariable("usuario") String usuario) {
+    public UsuarioEntity usuarioByUsuario(@PathVariable("usuario") String usuario) throws NullPointerException{
         return usuarioService.usuarioByUsuario(usuario);
     }
 

@@ -1,6 +1,7 @@
 package com.loginms.loginms.service.implementation;
 
 import com.loginms.loginms.dto.UsuarioDTO;
+import com.loginms.loginms.entity.RolEntity;
 import com.loginms.loginms.entity.UsuarioEntity;
 import com.loginms.loginms.repository.UsuarioRepository;
 import com.loginms.loginms.service.IUsuarioService;
@@ -38,14 +39,15 @@ public class UsuarioService implements IUsuarioService {
         ModelMapper mapper = new ModelMapper();
         UsuarioEntity usuarioEntity = mapper.map(usuario, UsuarioEntity.class);
         usuarioEntity.setContraseña(contraEncrip);
-        //usuarioEntity.getRol().setId_rol(1L);//Bug al guardar
-        System.out.println(usuarioEntity);
+        usuarioEntity.setRole(
+                new RolEntity(2L)
+        );
         usuarioRepository.save(usuarioEntity);
 
     }
 
     @Override
-    public UsuarioEntity usuarioByUsuario(String usuario) {
+    public UsuarioEntity usuarioByUsuario(String usuario) throws NullPointerException{
         if (usuario == null || usuario.isEmpty()) {
             throw new NullPointerException("Parametro de entrada nulo o vacio");
         }
@@ -57,7 +59,7 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public Boolean validarUserExist(String usuario) {
+    public Boolean validarUserExist(String usuario) throws NullPointerException{
         if (usuario == null || usuario.isEmpty()) {
             throw new NullPointerException("Parametro de entrada nulo o vacio");
         }
