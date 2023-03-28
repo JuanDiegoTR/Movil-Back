@@ -5,9 +5,7 @@ import com.loginms.loginms.entity.RolEntity;
 import com.loginms.loginms.entity.UsuarioEntity;
 import com.loginms.loginms.repository.UsuarioRepository;
 import com.loginms.loginms.service.IUsuarioService;
-import com.loginms.loginms.utilities.Constantes;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +17,6 @@ import java.util.Objects;
 public class UsuarioService implements IUsuarioService {
 
     private final UsuarioRepository usuarioRepository;
-
     @Override
     public void nuevoUsuario(UsuarioDTO usuario) throws NullPointerException {
 
@@ -47,7 +44,7 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public UsuarioEntity usuarioByUsuario(String usuario) throws NullPointerException{
+    public UsuarioEntity usuarioByUsuario(String usuario) throws NullPointerException {
         if (usuario == null || usuario.isEmpty()) {
             throw new NullPointerException("Parametro de entrada nulo o vacio");
         }
@@ -59,15 +56,35 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public Boolean validarUserExist(String usuario) throws NullPointerException{
+    public Boolean validarUserExist(String usuario) throws NullPointerException {
         if (usuario == null || usuario.isEmpty()) {
             throw new NullPointerException("Parametro de entrada nulo o vacio");
         }
         UsuarioEntity usuarioByUsuario = usuarioRepository.findByUsuario(usuario);
-        if (Objects.isNull(usuarioByUsuario)){
+        if (Objects.isNull(usuarioByUsuario)) {
             return false;
         }
 
         return true;
+    }
+
+    @Override
+    public void actualizarUsuario(String usuario) throws NullPointerException {
+        if (usuario == null || usuario.isEmpty()) {
+            throw new NullPointerException("Parametro de entrada nulo o vacio");
+        }
+
+        UsuarioEntity usuarioByUsuario = usuarioRepository.findByUsuario(usuario);
+        if (Objects.isNull(usuarioByUsuario)) {
+            throw new NullPointerException("El usuario no existe");
+        }
+
+        ModelMapper mapper = new ModelMapper();
+        UsuarioEntity usuarioEntity = mapper.map(usuarioByUsuario, UsuarioEntity.class);
+        usuarioEntity.setRole(
+                new RolEntity(1L)
+        );
+        usuarioRepository.save(usuarioEntity);
+
     }
 }
