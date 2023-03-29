@@ -41,7 +41,7 @@ public class CategoriaService implements ICategoriaService {
 
     }
 
-    @Override//Error con la llave foranea
+    @Override
     public void eliminarCategoria(Long idCategoria) throws NullPointerException {
         if (idCategoria == null) {
             throw new NullPointerException("El parametro de entrada no puede llegar nulo");
