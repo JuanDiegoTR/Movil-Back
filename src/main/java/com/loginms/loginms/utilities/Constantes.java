@@ -1,14 +1,6 @@
 package com.loginms.loginms.utilities;
 
 public class Constantes {
-    /**
-     * Constante ROL_VIP
-     */
-    public final static String ROL_VIP = "VIP";
-    /**
-     * Constante ROL_USER
-     */
-    public final static String ROL_USER = "USER";
 
     /**
      * Urls
@@ -31,14 +23,6 @@ public class Constantes {
          */
         public final static String PATH_DESCRIP_ID = "{id}";
         /**
-         * Coonstante PATH_TIPO
-         */
-        public final static String PATH_TIPO = "tipos";
-        /**
-         * Coonstante PATH_TIPO_ID
-         */
-        public final static String PATH_TIPO_ID = "{id}";
-        /**
          * Coonstante PATH_CONTABILIDAD
          */
         public final static String PATH_CONTABILIDAD = "contabilidad";
@@ -46,6 +30,14 @@ public class Constantes {
          * Coonstante PATH_CONTABILIDAD_ID
          */
         public final static String PATH_CONTABILIDAD_ID = "{idContabilidad}";
+        /**
+         * Coonstante PATH_CATEGORIA
+         */
+        public final static String PATH_CATEGORIA = "categoria";
+        /**
+         * Coonstante PATH_CATEGORIA_ID
+         */
+        public final static String PATH_CATEGORIA_ID = "{idCategoria}";
         private Urls() {
         }
     }
