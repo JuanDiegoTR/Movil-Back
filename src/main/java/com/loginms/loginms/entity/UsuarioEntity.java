@@ -37,4 +37,7 @@ public class UsuarioEntity {
     @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContabilidadEntity> contabilidad;
 
+    public UsuarioEntity(Long id_usuario) {
+        this.id_usuario = id_usuario;
+    }
 }

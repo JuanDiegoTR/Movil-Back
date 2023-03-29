@@ -2,12 +2,16 @@ package com.loginms.loginms.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@RequiredArgsConstructor
+@AllArgsConstructor
 @Table(name = "categoria")
 public class CategoriaEntity {
 
@@ -26,4 +30,7 @@ public class CategoriaEntity {
     @JoinColumn(name = "id_imagen")
     private ImagenEntity imagen;
 
+    public CategoriaEntity(Long id_categoria) {
+        this.id_categoria = id_categoria;
+    }
 }

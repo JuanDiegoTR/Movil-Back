@@ -11,7 +11,6 @@ public class ContabilidadDTO {
 
     private Long idTipo;
     private Long valor;
-    private Date fecha;
     private Long idCategoria;
     private Long idDescripcion;
     private Long idUsuario;

@@ -38,7 +38,14 @@ public class Constantes {
          * Coonstante PATH_TIPO_ID
          */
         public final static String PATH_TIPO_ID = "{id}";
-
+        /**
+         * Coonstante PATH_CONTABILIDAD
+         */
+        public final static String PATH_CONTABILIDAD = "contabilidad";
+        /**
+         * Coonstante PATH_CONTABILIDAD_ID
+         */
+        public final static String PATH_CONTABILIDAD_ID = "{idContabilidad}";
         private Urls() {
         }
     }
