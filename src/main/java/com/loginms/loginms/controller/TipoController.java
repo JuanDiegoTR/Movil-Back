@@ -19,7 +19,7 @@ public class TipoController {
      * @throws NullPointerException Error
      */
     @PostMapping
-    public void guardarTipo(@RequestParam String tipo) throws NullPointerException{
+    public void guardarTipo(@RequestParam String tipo) throws NullPointerException {
         tipoService.guardarTipo(tipo);
     }
 
@@ -30,7 +30,7 @@ public class TipoController {
      * @throws NullPointerException Error
      */
     @DeleteMapping(path = Constantes.Urls.PATH_TIPO_ID)
-    public void eliminarTipo(@PathVariable("id") Long id) throws NullPointerException{
+    public void eliminarTipo(@PathVariable("id") Long id) throws NullPointerException {
         tipoService.eliminarTipo(id);
     }
 

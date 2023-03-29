@@ -17,6 +17,7 @@ import java.util.Objects;
 public class UsuarioService implements IUsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+
     @Override
     public void nuevoUsuario(UsuarioDTO usuario) throws NullPointerException {
 

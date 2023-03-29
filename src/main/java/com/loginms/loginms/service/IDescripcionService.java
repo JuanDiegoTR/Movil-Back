@@ -5,6 +5,7 @@ import com.loginms.loginms.dto.DescripcionDTO;
 public interface IDescripcionService {
     /**
      * Crea una descripcion
+     *
      * @param descripcionDTO Parametros de entrada
      * @throws NullPointerException Error
      */
@@ -12,6 +13,7 @@ public interface IDescripcionService {
 
     /**
      * Elimina una descripcion
+     *
      * @param id Id de la descripcion
      * @throws NullPointerException Error
      */

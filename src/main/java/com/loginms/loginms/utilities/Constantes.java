@@ -13,7 +13,7 @@ public class Constantes {
     /**
      * Urls
      */
-    public final class Urls{
+    public final class Urls {
         /**
          * Coonstante PATH_USUARIO
          */
