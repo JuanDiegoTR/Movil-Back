@@ -88,4 +88,16 @@ public class UsuarioService implements IUsuarioService {
         usuarioRepository.save(usuarioEntity);
 
     }
+
+    @Override
+    public void borrarUsuario(String usuario) throws NullPointerException {
+        if (usuario == null || usuario.equals(" ")) {
+            throw new NullPointerException("Los parametros de entrada no pueden ser nulo");
+        }
+        UsuarioEntity usuarioByUsuario = usuarioRepository.findByUsuario(usuario);
+        if(Objects.isNull(usuarioByUsuario)){
+            throw new NullPointerException("El usuario no existe");
+        }
+        usuarioRepository.deleteById(usuarioByUsuario.getId_usuario());
+    }
 }

@@ -29,24 +29,4 @@ public class TipoService implements ITipoService {
         return true;
     }
 
-    @Override
-    public void guardarTipo(String tipo) throws NullPointerException {
-
-        if (tipo.isEmpty()) {
-            throw new NullPointerException("Los parametros de entrada no pueden ser nulo");
-        }
-
-        ModelMapper mapper = new ModelMapper();
-        TipoEntity tipoEntity = mapper.map(tipo, TipoEntity.class);
-        tipoEntity.setTipo(tipo);
-        tipoRepository.save(tipoEntity);
-    }
-
-    @Override
-    public void eliminarTipo(Long id) throws NullPointerException {
-        if (id == null || id.equals(" ")) {
-            throw new NullPointerException("Los parametros de entrada no pueden ser nulo");
-        }
-        tipoRepository.deleteById(id);
-    }
 }

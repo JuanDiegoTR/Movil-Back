@@ -38,4 +38,12 @@ public interface IUsuarioService {
      */
     void actualizarUsuario(String usuario) throws NullPointerException;
 
+    /**
+     * Borrar un usuario
+     *
+     * @param usuario Parametro de entrada
+     * @throws NullPointerException Error
+     */
+    void borrarUsuario(String usuario) throws NullPointerException;
+
 }

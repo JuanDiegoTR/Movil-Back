@@ -48,4 +48,15 @@ public class UsuarioController {
         usuarioService.actualizarUsuario(usuario);
     }
 
+    /**
+     * Borrar un usuario
+     *
+     * @param usuario Parametro de entrada
+     * @throws NullPointerException Error
+     */
+    @DeleteMapping(value = Constantes.Urls.PATH_USUARIO_USER)
+    public void borrarUsuario(@PathVariable("usuario") String usuario) throws NullPointerException{
+        usuarioService.borrarUsuario(usuario);
+    }
+
 }
