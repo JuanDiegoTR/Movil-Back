@@ -38,6 +38,19 @@ public class Constantes {
          * Coonstante PATH_CATEGORIA_ID
          */
         public final static String PATH_CATEGORIA_ID = "{idCategoria}";
+        /**
+         * Coonstante PATH_OPER_BASICAS
+         */
+        public final static String PATH_OPER_BASICAS = "operaciones/basicas";
+        /**
+         * Coonstante PATH_OPER_BASICAS_USUARIO_GAST
+         */
+        public final static String PATH_OPER_BASICAS_USUARIO_GAST = "gasto/total/{usuario}";
+        /**
+         * Coonstante PATH_OPER_BASICAS_USUARIO_INGRE
+         */
+        public final static String PATH_OPER_BASICAS_USUARIO_INGRE = "ingreso/total/{usuario}";
+
         private Urls() {
         }
     }
