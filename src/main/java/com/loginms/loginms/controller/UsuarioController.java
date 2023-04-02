@@ -33,8 +33,30 @@ public class UsuarioController {
      * @throws NullPointerException Error
      */
     @GetMapping(value = Constantes.Urls.PATH_USUARIO_USER)
-    public UsuarioEntity usuarioByUsuario(@PathVariable("usuario") String usuario) {
+    public UsuarioEntity usuarioByUsuario(@PathVariable("usuario") String usuario) throws NullPointerException {
         return usuarioService.usuarioByUsuario(usuario);
+    }
+
+    /**
+     * Actualizar el rol de un usuario a VIP
+     *
+     * @param usuario Parametro de entrada
+     * @throws NullPointerException Error
+     */
+    @PutMapping(value = Constantes.Urls.PATH_USUARIO_USER)
+    void actualizarUsuario(@PathVariable("usuario") String usuario) throws NullPointerException {
+        usuarioService.actualizarUsuario(usuario);
+    }
+
+    /**
+     * Borrar un usuario
+     *
+     * @param usuario Parametro de entrada
+     * @throws NullPointerException Error
+     */
+    @DeleteMapping(value = Constantes.Urls.PATH_USUARIO_USER)
+    public void borrarUsuario(@PathVariable("usuario") String usuario) throws NullPointerException{
+        usuarioService.borrarUsuario(usuario);
     }
 
 }

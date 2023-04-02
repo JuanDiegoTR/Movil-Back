@@ -1,19 +1,11 @@
 package com.loginms.loginms.utilities;
 
 public class Constantes {
-    /**
-     * Constante ROL_VIP
-     */
-    public final static String ROL_VIP = "VIP";
-    /**
-     * Constante ROL_USER
-     */
-    public final static String ROL_USER = "USER";
 
     /**
      * Urls
      */
-    public final class Urls{
+    public final class Urls {
         /**
          * Coonstante PATH_USUARIO
          */
@@ -31,14 +23,36 @@ public class Constantes {
          */
         public final static String PATH_DESCRIP_ID = "{id}";
         /**
-         * Coonstante PATH_TIPO
+         * Coonstante PATH_CONTABILIDAD
          */
-        public final static String PATH_TIPO = "tipos";
+        public final static String PATH_CONTABILIDAD = "contabilidad";
         /**
-         * Coonstante PATH_TIPO_ID
+         * Coonstante PATH_CONTABILIDAD_ID
          */
-        public final static String PATH_TIPO_ID = "{id}";
+        public final static String PATH_CONTABILIDAD_ID = "{idContabilidad}";
+        /**
+         * Coonstante PATH_CATEGORIA
+         */
+        public final static String PATH_CATEGORIA = "categoria";
+        /**
+         * Coonstante PATH_CATEGORIA_ID
+         */
+        public final static String PATH_CATEGORIA_ID = "{idCategoria}";
+        /**
+         * Coonstante PATH_OPER_BASICAS
+         */
+        public final static String PATH_OPER_BASICAS = "operaciones/basicas";
+        /**
+         * Coonstante PATH_OPER_BASICAS_USUARIO_GAST
+         */
+        public final static String PATH_OPER_BASICAS_USUARIO_GAST = "gasto/total/{usuario}";
+        /**
+         * Coonstante PATH_OPER_BASICAS_USUARIO_INGRE
+         */
+        public final static String PATH_OPER_BASICAS_USUARIO_INGRE = "ingreso/total/{usuario}";
 
+        private Urls() {
+        }
     }
 
 }

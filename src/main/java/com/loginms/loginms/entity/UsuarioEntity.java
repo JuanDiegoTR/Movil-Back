@@ -2,13 +2,17 @@ package com.loginms.loginms.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "usuario")
 public class UsuarioEntity {
 
@@ -33,4 +37,7 @@ public class UsuarioEntity {
     @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContabilidadEntity> contabilidad;
 
+    public UsuarioEntity(Long id_usuario) {
+        this.id_usuario = id_usuario;
+    }
 }
