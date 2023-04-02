@@ -1,14 +1,17 @@
 package com.loginms.loginms.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "rol")
 public class RolEntity {
     @Id
@@ -16,12 +19,9 @@ public class RolEntity {
     private Long id_rol;
     @Column(name = "rols")
     private String rol;
-    /*@OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AccesoEntity> acceso;*/
     @JsonIgnore
-    @OneToOne(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "role")
     private UsuarioEntity usuario;
-
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
@@ -33,4 +33,7 @@ public class RolEntity {
     )
     private List<PantallaEntity> pantallas;
 
+    public RolEntity(Long id_rol) {
+        this.id_rol = id_rol;
+    }
 }

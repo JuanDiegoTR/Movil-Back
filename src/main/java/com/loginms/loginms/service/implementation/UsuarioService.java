@@ -1,12 +1,11 @@
 package com.loginms.loginms.service.implementation;
 
 import com.loginms.loginms.dto.UsuarioDTO;
+import com.loginms.loginms.entity.RolEntity;
 import com.loginms.loginms.entity.UsuarioEntity;
 import com.loginms.loginms.repository.UsuarioRepository;
 import com.loginms.loginms.service.IUsuarioService;
-import com.loginms.loginms.utilities.Constantes;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -38,14 +37,15 @@ public class UsuarioService implements IUsuarioService {
         ModelMapper mapper = new ModelMapper();
         UsuarioEntity usuarioEntity = mapper.map(usuario, UsuarioEntity.class);
         usuarioEntity.setContraseña(contraEncrip);
-        //usuarioEntity.getRol().setId_rol(1L);//Bug al guardar
-        System.out.println(usuarioEntity);
+        usuarioEntity.setRole(
+                new RolEntity(2L)
+        );
         usuarioRepository.save(usuarioEntity);
 
     }
 
     @Override
-    public UsuarioEntity usuarioByUsuario(String usuario) {
+    public UsuarioEntity usuarioByUsuario(String usuario) throws NullPointerException {
         if (usuario == null || usuario.isEmpty()) {
             throw new NullPointerException("Parametro de entrada nulo o vacio");
         }
@@ -57,15 +57,47 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public Boolean validarUserExist(String usuario) {
+    public Boolean validarUserExist(String usuario) throws NullPointerException {
         if (usuario == null || usuario.isEmpty()) {
             throw new NullPointerException("Parametro de entrada nulo o vacio");
         }
         UsuarioEntity usuarioByUsuario = usuarioRepository.findByUsuario(usuario);
-        if (Objects.isNull(usuarioByUsuario)){
+        if (Objects.isNull(usuarioByUsuario)) {
             return false;
         }
 
         return true;
+    }
+
+    @Override
+    public void actualizarUsuario(String usuario) throws NullPointerException {
+        if (usuario == null || usuario.isEmpty()) {
+            throw new NullPointerException("Parametro de entrada nulo o vacio");
+        }
+
+        UsuarioEntity usuarioByUsuario = usuarioRepository.findByUsuario(usuario);
+        if (Objects.isNull(usuarioByUsuario)) {
+            throw new NullPointerException("El usuario no existe");
+        }
+
+        ModelMapper mapper = new ModelMapper();
+        UsuarioEntity usuarioEntity = mapper.map(usuarioByUsuario, UsuarioEntity.class);
+        usuarioEntity.setRole(
+                new RolEntity(1L)
+        );
+        usuarioRepository.save(usuarioEntity);
+
+    }
+
+    @Override
+    public void borrarUsuario(String usuario) throws NullPointerException {
+        if (usuario == null || usuario.equals(" ")) {
+            throw new NullPointerException("Los parametros de entrada no pueden ser nulo");
+        }
+        UsuarioEntity usuarioByUsuario = usuarioRepository.findByUsuario(usuario);
+        if(Objects.isNull(usuarioByUsuario)){
+            throw new NullPointerException("El usuario no existe");
+        }
+        usuarioRepository.deleteById(usuarioByUsuario.getId_usuario());
     }
 }

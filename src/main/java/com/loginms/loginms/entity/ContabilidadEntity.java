@@ -32,5 +32,4 @@ public class ContabilidadEntity {
     @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuarios;
 
-
 }
