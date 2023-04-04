@@ -50,6 +50,14 @@ public class Constantes {
          * Coonstante PATH_OPER_BASICAS_USUARIO_INGRE
          */
         public final static String PATH_OPER_BASICAS_USUARIO_INGRE = "ingreso/total/{usuario}";
+        /**
+         * Coonstante PATH_OPER_BASICAS_USUARIO_GASTS
+         */
+        public final static String PATH_OPER_BASICAS_USUARIO_GASTS = "gastos/{usuario}";
+        /**
+         * Coonstante PATH_OPER_BASICAS_USUARIO_INGRES
+         */
+        public final static String PATH_OPER_BASICAS_USUARIO_INGRES = "ingresos/{usuario}";
 
         private Urls() {
         }
