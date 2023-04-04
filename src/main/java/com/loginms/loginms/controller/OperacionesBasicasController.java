@@ -1,5 +1,6 @@
 package com.loginms.loginms.controller;
 
+import com.loginms.loginms.dto.ContabilidadOutDTO;
 import com.loginms.loginms.service.IOperacionesBasicasService;
 import com.loginms.loginms.utilities.Constantes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = Constantes.Urls.PATH_OPER_BASICAS)
@@ -38,6 +41,25 @@ public class OperacionesBasicasController {
         return operacionesBasicasService.ingresosDeUsuario(usuario);
     }
 
-
+    /**
+     * Lista de los gastos por el usuario
+     * @param usuario Usuario a consultar
+     * @return Lista de los gastos
+     * @throws NullPointerException
+     */
+    @GetMapping(value = Constantes.Urls.PATH_OPER_BASICAS_USUARIO_GASTS)
+    public List<ContabilidadOutDTO> listGastosByusuario(@PathVariable("usuario") String usuario) throws NullPointerException{
+        return operacionesBasicasService.listGastosByusuario(usuario);
+    }
+    /**
+     * Lista de los ingresos por el usuario
+     * @param usuario Usuario a consultar
+     * @return Lista de los ingresos
+     * @throws NullPointerException
+     */
+    @GetMapping(value = Constantes.Urls.PATH_OPER_BASICAS_USUARIO_INGRES)
+    public List<ContabilidadOutDTO> listIngresosByusuario(@PathVariable("usuario") String usuario) throws NullPointerException{
+        return operacionesBasicasService.listIngresosByusuario(usuario);
+    }
 
 }
