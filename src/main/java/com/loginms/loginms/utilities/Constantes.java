@@ -58,6 +58,10 @@ public class Constantes {
          * Coonstante PATH_OPER_BASICAS_USUARIO_INGRES
          */
         public final static String PATH_OPER_BASICAS_USUARIO_INGRES = "ingresos/{usuario}";
+        /**
+         * Coonstante PATH_LOGIN
+         */
+        public final static String PATH_LOGIN = "login";
 
         private Urls() {
         }
