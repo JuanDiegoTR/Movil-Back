@@ -1,5 +1,6 @@
 package com.loginms.loginms.controller;
 
+import com.loginms.loginms.dto.ContaOutDTO;
 import com.loginms.loginms.dto.ContabilidadOutDTO;
 import com.loginms.loginms.service.IOperacionesBasicasService;
 import com.loginms.loginms.utilities.Constantes;
@@ -46,9 +47,13 @@ public class OperacionesBasicasController {
      * @throws NullPointerException
      */
     @GetMapping(value = Constantes.Urls.PATH_OPER_BASICAS_USUARIO_GASTS)
-    public List<ContabilidadOutDTO> listGastosByusuario(@PathVariable("usuario") String usuario) throws NullPointerException{
-        return operacionesBasicasService.listGastosByusuario(usuario);
+    public ContaOutDTO listGastosByusuario(
+            @PathVariable("usuario") String usuario,
+            @PathVariable("pag") Long pagina,
+            @PathVariable("cant") Long cantidad) throws NullPointerException{
+        return operacionesBasicasService.paginadoGastos(usuario, pagina, cantidad);
     }
+
     /**
      * Lista de los ingresos por el usuario
      * @param usuario Usuario a consultar
@@ -56,8 +61,11 @@ public class OperacionesBasicasController {
      * @throws NullPointerException
      */
     @GetMapping(value = Constantes.Urls.PATH_OPER_BASICAS_USUARIO_INGRES)
-    public List<ContabilidadOutDTO> listIngresosByusuario(@PathVariable("usuario") String usuario) throws NullPointerException{
-        return operacionesBasicasService.listIngresosByusuario(usuario);
+    public ContaOutDTO listIngresosByusuario(
+            @PathVariable("usuario") String usuario,
+            @PathVariable("pag") Long pagina,
+            @PathVariable("cant") Long cantidad) throws NullPointerException{
+        return operacionesBasicasService.paginadoIngresos(usuario, pagina, cantidad);
     }
 
 }
