@@ -1,5 +1,6 @@
 package com.loginms.loginms.service.implementation;
 
+import com.loginms.loginms.dto.ContaOutDTO;
 import com.loginms.loginms.dto.ContabilidadOutDTO;
 import com.loginms.loginms.entity.ContabilidadEntity;
 import com.loginms.loginms.repository.ContabilidadRepository;
@@ -77,4 +78,47 @@ public class OperacionesBasicasService implements IOperacionesBasicasService {
 
         return listIngresosDTO;
     }
+
+    @Override
+    public ContaOutDTO paginadoGastos(String usuario, Long pagActual, Long cantDatos) throws NullPointerException {
+        List<ContabilidadOutDTO> datos = listGastosByusuario(usuario); // Obtén tu lista de datos
+        ContaOutDTO result = paginar(datos, pagActual, cantDatos);
+        return result;
+    }
+
+    @Override
+    public ContaOutDTO paginadoIngresos(String usuario, Long pagActual, Long cantDatos) throws NullPointerException {
+        List<ContabilidadOutDTO> datos = listIngresosByusuario(usuario); // Obtén tu lista de datos
+        ContaOutDTO result = paginar(datos, pagActual, cantDatos);
+        return result;
+    }
+
+    private ContaOutDTO paginar(List<ContabilidadOutDTO> datos, Long paginaActual, Long elementosPorPagina) {
+        Long inicio = (paginaActual - 1) * elementosPorPagina;
+        Long fin = Math.min(inicio + elementosPorPagina, datos.size());
+
+        var cantPage = Math.ceil((double) datos.size() / elementosPorPagina);
+
+        ContaOutDTO contaOutDTO = new ContaOutDTO();
+        contaOutDTO.setTotalPagina((long) cantPage);
+
+        List<ContabilidadOutDTO> result = new ArrayList<>();
+
+        List<ContabilidadOutDTO> elementosPagina = datos.subList(Math.toIntExact(inicio), Math.toIntExact(fin));
+
+        // Mostrar los elementos de la página actual
+        for (ContabilidadOutDTO elemento : elementosPagina) {
+            result.add(elemento);
+        }
+
+        contaOutDTO.setContaOutList(result);
+
+        if (result.isEmpty()) {
+            throw new NullPointerException("No hay mas registros por mostrar");
+        }
+
+        return contaOutDTO;
+    }
+
+
 }
