@@ -1,10 +1,13 @@
 package com.loginms.loginms.controller;
 
 import com.loginms.loginms.dto.DescripcionDTO;
+import com.loginms.loginms.dto.DescripcionOutDTO;
 import com.loginms.loginms.service.IDescripcionService;
 import com.loginms.loginms.utilities.Constantes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin("*")
@@ -34,6 +37,26 @@ public class DescripcionController {
     @DeleteMapping(path = Constantes.Urls.PATH_DESCRIP_ID)
     public void eliminarDescripcion(@PathVariable("id") Long id) throws NullPointerException {
         descripcionService.eliminarDescripcion(id);
+    }
+
+    /**
+     * Descripciones de gastos
+     * @return
+     * @throws NullPointerException
+     */
+    @GetMapping(path = Constantes.Urls.PATH_DESCRIP_GASTO)
+    public List<DescripcionOutDTO> getDescripGasto() throws NullPointerException{
+        return descripcionService.getDescripGasto();
+    }
+
+    /**
+     * Descripciones de ingresos
+     * @return
+     * @throws NullPointerException
+     */
+    @GetMapping(path = Constantes.Urls.PATH_DESCRIP_INGRESO)
+    public List<DescripcionOutDTO> getDescripIngreso() throws NullPointerException{
+        return descripcionService.getDescripIngreso();
     }
 
 }

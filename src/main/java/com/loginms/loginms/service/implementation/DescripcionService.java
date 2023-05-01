@@ -1,6 +1,7 @@
 package com.loginms.loginms.service.implementation;
 
 import com.loginms.loginms.dto.DescripcionDTO;
+import com.loginms.loginms.dto.DescripcionOutDTO;
 import com.loginms.loginms.entity.DescripcionEntity;
 import com.loginms.loginms.repository.DescripcionRepository;
 import com.loginms.loginms.service.IDescripcionService;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -43,5 +45,27 @@ public class DescripcionService implements IDescripcionService {
             throw new NullPointerException("Los parametros de entrada no pueden ser nulo");
         }
         descripcionRepository.deleteById(id);
+    }
+
+    @Override
+    public List<DescripcionOutDTO> getDescripGasto() throws NullPointerException {
+        List<DescripcionOutDTO> result = descripcionRepository.getDescripGasto();
+
+        if (Objects.isNull(result)) {
+            throw new NullPointerException("No se han encontradoo descripciones");
+        }
+
+        return result;
+    }
+
+    @Override
+    public List<DescripcionOutDTO> getDescripIngreso() throws NullPointerException {
+        List<DescripcionOutDTO> result = descripcionRepository.getDescripIngreso();
+
+        if (Objects.isNull(result)) {
+            throw new NullPointerException("No se han encontradoo descripciones");
+        }
+
+        return result;
     }
 }
