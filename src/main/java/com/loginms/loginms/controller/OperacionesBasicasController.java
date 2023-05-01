@@ -1,17 +1,16 @@
 package com.loginms.loginms.controller;
 
+import com.loginms.loginms.dto.ContaOutDTO;
 import com.loginms.loginms.dto.ContabilidadOutDTO;
 import com.loginms.loginms.service.IOperacionesBasicasService;
 import com.loginms.loginms.utilities.Constantes;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(value = Constantes.Urls.PATH_OPER_BASICAS)
 public class OperacionesBasicasController {
 
@@ -48,9 +47,13 @@ public class OperacionesBasicasController {
      * @throws NullPointerException
      */
     @GetMapping(value = Constantes.Urls.PATH_OPER_BASICAS_USUARIO_GASTS)
-    public List<ContabilidadOutDTO> listGastosByusuario(@PathVariable("usuario") String usuario) throws NullPointerException{
-        return operacionesBasicasService.listGastosByusuario(usuario);
+    public ContaOutDTO listGastosByusuario(
+            @PathVariable("usuario") String usuario,
+            @PathVariable("pag") Long pagina,
+            @PathVariable("cant") Long cantidad) throws NullPointerException{
+        return operacionesBasicasService.paginadoGastos(usuario, pagina, cantidad);
     }
+
     /**
      * Lista de los ingresos por el usuario
      * @param usuario Usuario a consultar
@@ -58,8 +61,11 @@ public class OperacionesBasicasController {
      * @throws NullPointerException
      */
     @GetMapping(value = Constantes.Urls.PATH_OPER_BASICAS_USUARIO_INGRES)
-    public List<ContabilidadOutDTO> listIngresosByusuario(@PathVariable("usuario") String usuario) throws NullPointerException{
-        return operacionesBasicasService.listIngresosByusuario(usuario);
+    public ContaOutDTO listIngresosByusuario(
+            @PathVariable("usuario") String usuario,
+            @PathVariable("pag") Long pagina,
+            @PathVariable("cant") Long cantidad) throws NullPointerException{
+        return operacionesBasicasService.paginadoIngresos(usuario, pagina, cantidad);
     }
 
 }

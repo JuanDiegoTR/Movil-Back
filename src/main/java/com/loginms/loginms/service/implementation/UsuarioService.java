@@ -32,7 +32,7 @@ public class UsuarioService implements IUsuarioService {
         }
 
         //Encriptado
-        String contraEncrip = Base64.getEncoder().encodeToString(usuario.getContraseña().getBytes());
+        String contraEncrip = Base64.getEncoder().encodeToString(usuario.getContrasena().getBytes());
 
         ModelMapper mapper = new ModelMapper();
         UsuarioEntity usuarioEntity = mapper.map(usuario, UsuarioEntity.class);

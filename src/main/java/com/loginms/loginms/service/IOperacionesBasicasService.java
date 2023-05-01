@@ -1,5 +1,6 @@
 package com.loginms.loginms.service;
 
+import com.loginms.loginms.dto.ContaOutDTO;
 import com.loginms.loginms.dto.ContabilidadOutDTO;
 
 import java.util.List;
@@ -37,5 +38,27 @@ public interface IOperacionesBasicasService {
      * @throws NullPointerException
      */
     List<ContabilidadOutDTO> listIngresosByusuario(String usuario) throws NullPointerException;
+
+    /**
+     * Lista de gastos paginados
+     * @param usuario Usuario
+     * @param pagActual Pagina actual
+     * @param cantDatos Cantidad de datos por pagina
+     * @return Lista
+     * @throws NullPointerException Error
+     */
+    ContaOutDTO paginadoGastos(
+            String usuario, Long pagActual, Long cantDatos) throws NullPointerException;
+
+    /**
+     * Lista de ingresos paginados
+     * @param usuario Usuario
+     * @param pagActual Pagina actual
+     * @param cantDatos Cantidad de datos por pagina
+     * @return Lista
+     * @throws NullPointerException Error
+     */
+    ContaOutDTO paginadoIngresos(
+            String usuario, Long pagActual, Long cantDatos) throws NullPointerException;
 
 }
