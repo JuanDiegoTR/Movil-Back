@@ -1,11 +1,15 @@
 package com.loginms.loginms.service;
 
 import com.loginms.loginms.dto.ContabilidadDTO;
+import com.loginms.loginms.dto.ContabilidadModalOutDTO;
+
+import java.sql.SQLException;
 
 public interface IContabillidadService {
 
     /**
      * Guardar un nuevo registro contable
+     *
      * @param contabilidadDTO Dto de entrada
      * @throws NullPointerException
      */
@@ -13,6 +17,7 @@ public interface IContabillidadService {
 
     /**
      * Eliminar un registro contable
+     *
      * @param idContabilidad Id del registro a eliminar
      * @throws NullPointerException
      */
@@ -20,10 +25,20 @@ public interface IContabillidadService {
 
     /**
      * Actualizar un registro contable
-     * @param idContabilidad Id del registro a actualizar
+     *
+     * @param idContabilidad  Id del registro a actualizar
      * @param contabilidadDTO Datos a actualizar
      * @throws NullPointerException
      */
     void actualizarContabillidad(Long idContabilidad, ContabilidadDTO contabilidadDTO) throws NullPointerException;
+
+    /**
+     * Ver registro contable
+     *
+     * @param idContabilidad Id del registro
+     * @throws NullPointerException Error
+     * @throws SQLException Error
+     */
+    ContabilidadModalOutDTO getRegistroCont(Long idContabilidad) throws NullPointerException, SQLException;
 
 }

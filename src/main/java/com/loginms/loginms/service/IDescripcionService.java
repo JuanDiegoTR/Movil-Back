@@ -1,6 +1,9 @@
 package com.loginms.loginms.service;
 
 import com.loginms.loginms.dto.DescripcionDTO;
+import com.loginms.loginms.dto.DescripcionOutDTO;
+
+import java.util.List;
 
 public interface IDescripcionService {
     /**
@@ -18,5 +21,19 @@ public interface IDescripcionService {
      * @throws NullPointerException Error
      */
     void eliminarDescripcion(Long id) throws NullPointerException;
+
+    /**
+     * Descripciones de gastos
+     * @return
+     * @throws NullPointerException
+     */
+    List<DescripcionOutDTO> getDescripGasto() throws NullPointerException;
+
+    /**
+     * Descripciones de ingresos
+     * @return
+     * @throws NullPointerException
+     */
+    List<DescripcionOutDTO> getDescripIngreso() throws NullPointerException;
 
 }

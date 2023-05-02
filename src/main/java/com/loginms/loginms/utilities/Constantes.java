@@ -23,6 +23,14 @@ public class Constantes {
          */
         public final static String PATH_DESCRIP_ID = "{id}";
         /**
+         * Coonstante PATH_DESCRIP_GASTO
+         */
+        public final static String PATH_DESCRIP_GASTO = "lista/gasto";
+        /**
+         * Coonstante PATH_DESCRIP_INGRESO
+         */
+        public final static String PATH_DESCRIP_INGRESO = "lista/ingreso";
+        /**
          * Coonstante PATH_CONTABILIDAD
          */
         public final static String PATH_CONTABILIDAD = "contabilidad";
