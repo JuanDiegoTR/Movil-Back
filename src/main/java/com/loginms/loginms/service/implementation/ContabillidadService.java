@@ -1,6 +1,7 @@
 package com.loginms.loginms.service.implementation;
 
 import com.loginms.loginms.dto.ContabilidadDTO;
+import com.loginms.loginms.dto.ContabilidadModalOutDTO;
 import com.loginms.loginms.entity.CategoriaEntity;
 import com.loginms.loginms.entity.ContabilidadEntity;
 import com.loginms.loginms.entity.DescripcionEntity;
@@ -11,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.Objects;
 
@@ -76,5 +78,24 @@ public class ContabillidadService implements IContabillidadService {
                 new UsuarioEntity(contabilidadDTO.getIdUsuario())
         );
         contabilidadRepository.save(contabilidad);
+    }
+
+    @Override
+    public ContabilidadModalOutDTO getRegistroCont(Long idContabilidad) throws NullPointerException, SQLException {
+
+        if (idContabilidad == null) {
+            throw new NullPointerException("Parametro de enrada no puede ser nulo.");
+        }
+
+        ContabilidadModalOutDTO result = contabilidadRepository.getContabilidad(idContabilidad);
+
+        if(Objects.isNull(result)){
+            throw new NullPointerException("Error al consultar el registro contable");
+        }
+
+        System.out.println(result);
+
+        return result;
+
     }
 }
