@@ -30,10 +30,10 @@ public class LoginService implements ILoginService {
         byte[] bytesDecodificados = Base64.getDecoder().decode(consultDTO.getPassword());
         String cadenaDecodificada = new String(bytesDecodificados);
 
-        System.out.println(consultDTO.getUser() + " " + consultDTO.getPassword() + " " + cadenaDecodificada);
+        System.out.println(consultDTO.getUse() + " " + consultDTO.getPassword() + " " + cadenaDecodificada);
         System.out.println(loginInDTO.getUsuario() + " " + loginInDTO.getContrasena());
 
-        if (loginInDTO.getUsuario().equals(consultDTO.getUser()) &&
+        if (loginInDTO.getUsuario().equals(consultDTO.getUse()) &&
                 loginInDTO.getContrasena().equals(cadenaDecodificada)){
             return true;
         }

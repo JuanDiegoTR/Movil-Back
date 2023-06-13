@@ -14,7 +14,7 @@ public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
 
     @Query(value = """
             SELECT
-            U.USUARIO AS user,
+            U.USUARIO AS use,
             U.CONTRASEÑA AS password
             FROM USUARIO U
             WHERE U.USUARIO = :usuario

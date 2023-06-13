@@ -22,7 +22,6 @@ public class ContabillidadService implements IContabillidadService {
 
     private final ContabilidadRepository contabilidadRepository;
 
-
     @Override
     public void guardarContabillidad(ContabilidadDTO contabilidadDTO) throws NullPointerException {
         if (Objects.isNull(contabilidadDTO)) {
@@ -54,6 +53,7 @@ public class ContabillidadService implements IContabillidadService {
 
     @Override
     public void actualizarContabillidad(Long idContabilidad, ContabilidadDTO contabilidadDTO) throws NullPointerException {
+
         if (idContabilidad == null || idContabilidad.equals(" ") || Objects.isNull(contabilidadDTO)) {
             throw new NullPointerException("Los parametros de entrada no pueden ser nulo");
         }
@@ -89,7 +89,7 @@ public class ContabillidadService implements IContabillidadService {
 
         ContabilidadModalOutDTO result = contabilidadRepository.getContabilidad(idContabilidad);
 
-        if(Objects.isNull(result)){
+        if (Objects.isNull(result)) {
             throw new NullPointerException("Error al consultar el registro contable");
         }
 
@@ -98,4 +98,22 @@ public class ContabillidadService implements IContabillidadService {
         return result;
 
     }
+
+    @Override
+    public Long totalGastoByCategoria(Long idCategoria) {
+
+        if (idCategoria == null) {
+            throw new NullPointerException("Parametro de enrada no puede ser nulo.");
+        }
+
+        Long total = contabilidadRepository.totalGastoByCategoria(idCategoria);
+
+        if (total == null) {
+            total = 0L;
+        }
+
+        return total;
+
+    }
+
 }

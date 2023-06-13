@@ -19,6 +19,10 @@ public class Constantes {
          */
         public final static String PATH_DESCRIP = "descripcion";
         /**
+         * Coonstante PATH_EXCEL
+         */
+        public final static String PATH_EXCEL = "excel";
+        /**
          * Coonstante PATH_DESCRIP_ID
          */
         public final static String PATH_DESCRIP_ID = "{id}";
@@ -67,9 +71,17 @@ public class Constantes {
          */
         public final static String PATH_OPER_BASICAS_USUARIO_INGRES = "ingresos/{usuario}/{pag}/{cant}";
         /**
+         * Coonstante PATH_OPER_BASICAS_DISPO_USUARIO
+         */
+        public final static String PATH_OPER_BASICAS_DISPO_USUARIO = "disponible/{usuario}";
+        /**
          * Coonstante PATH_LOGIN
          */
         public final static String PATH_LOGIN = "login";
+        /**
+         * Coonstante PATH_CATEGORIA_ID
+         */
+        public final static String PATH_CATEGORIA_ID_CATE = "total-gastos/{idCategoria}";
 
         private Urls() {
         }

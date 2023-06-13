@@ -14,8 +14,15 @@ public class LoginController {
     @Autowired
     private ILoginService iLoginService;
 
+    /**
+     * login
+     *
+     * @param loginInDTO Parametro de entrada
+     * @return Boolean
+     * @throws NullPointerException Error
+     */
     @PostMapping()
-    public Boolean login(@RequestBody LoginInDTO loginInDTO) throws NullPointerException{
+    public Boolean login(@RequestBody LoginInDTO loginInDTO) throws NullPointerException {
         return iLoginService.login(loginInDTO);
     }
 

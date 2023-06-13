@@ -61,4 +61,11 @@ public interface IOperacionesBasicasService {
     ContaOutDTO paginadoIngresos(
             String usuario, Long pagActual, Long cantDatos) throws NullPointerException;
 
+    /**
+     * Total disponible del usuario
+     * @return
+     * @throws NullPointerException
+     */
+    Long disponible(String usuario) throws NullPointerException;
+
 }

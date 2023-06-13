@@ -93,6 +93,27 @@ public class OperacionesBasicasService implements IOperacionesBasicasService {
         return result;
     }
 
+    @Override
+    public Long disponible(String usuario) throws NullPointerException {
+        if (usuario == null || usuario.isEmpty()) {
+            throw new NullPointerException("El usuario no puede ser nulo o vacio");
+        }
+
+        Long gastos = contabilidadRepository.gastosDeUsuario(usuario);
+        if (gastos == null) {
+            throw new NullPointerException("El usuario no tiene gastos registrado");
+        }
+
+        Long ingresos = contabilidadRepository.ingresosDeUsuario(usuario);
+        if (ingresos == null) {
+            throw new NullPointerException("El usuario no tiene gastos registrado");
+        }
+
+        Long disponible = ingresos - gastos;
+
+        return disponible;
+    }
+
     private ContaOutDTO paginar(List<ContabilidadOutDTO> datos, Long paginaActual, Long elementosPorPagina) {
         Long inicio = (paginaActual - 1) * elementosPorPagina;
         Long fin = Math.min(inicio + elementosPorPagina, datos.size());

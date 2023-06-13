@@ -41,4 +41,11 @@ public interface IContabillidadService {
      */
     ContabilidadModalOutDTO getRegistroCont(Long idContabilidad) throws NullPointerException, SQLException;
 
+    /**
+     * totalGastoByCategoria
+     * @param idCategoria Id de la categoria
+     * @return Long
+     */
+    Long totalGastoByCategoria(Long idCategoria);
+
 }

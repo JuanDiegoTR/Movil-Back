@@ -63,4 +63,14 @@ public class ContabillidadController {
         return contabillidadService.getRegistroCont(Long.valueOf(idContabilidad));
     }
 
+    /**
+     * totalGastoByCategoria
+     * @param idCategoria Id de la categoria
+     * @return Long
+     */
+    @GetMapping(path = Constantes.Urls.PATH_CATEGORIA_ID_CATE)
+    public Long totalGastoByCategoria(@PathVariable("idCategoria") Long idCategoria){
+        return contabillidadService.totalGastoByCategoria(idCategoria);
+    }
+
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin("*")
 @RequestMapping(value = Constantes.Urls.PATH_CATEGORIA)
+
 public class CategoriaController {
 
     @Autowired
